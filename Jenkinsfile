@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('continous download') {
             steps {
-                git 'https://github.com/77vijju/war-web-project.git'
+                git 'https://github.com/77vijju/DemoATC.git'
             }
         }
         stage('mvn build') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('continues deployment') {
             steps {
-                sh 'sshpass -p "vijju" scp target/wwp-1.0.0.war vijju@172.17.0.3:/opt/apache-tomcat-9.0.56/webapps'
+                sh 'sshpass -p "vijju" scp target/DemoATC.war vijju@172.17.0.2:/opt/apache-tomcat-9.0.56/webapps'
             }
         }
     }
